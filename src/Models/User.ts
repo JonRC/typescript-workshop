@@ -3,12 +3,11 @@ import { Document, model, Schema, SchemaOptions } from 'mongoose';
 interface IUser {
   name?: string
   email: string
-  birth: Date
-  address?: {
-    country: String,
-    state: String,
-    city: String
-  }
+}
+
+interface IQuery {
+  page: number
+  limit: number
 }
 
 interface IUserDoc extends Document, IUser {}
@@ -30,4 +29,4 @@ const userSchema = new Schema({
 
 const User = model<IUserDoc>('users', userSchema)
 
-export { User, IUser }
+export { User, IUser, IQuery }
